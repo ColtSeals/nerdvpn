@@ -187,7 +187,6 @@ sleep 3s
 echo -e "\033[0m"
 h
 exit
-fi
 echo -e "$KEY" > /home/DATABASE/admvps.txt
 echo "$IP" >/home/DATABASE/IP.txt
 echo "$IP" >/home/DATABASE/IPMENU.txt
