@@ -181,8 +181,13 @@ echo -e "\033[01;35m|                  \033[01;33m    ADM VPS\033[01;35m        
 echo -e "\033[01;35m -------------------------------------------------"
 echo ""
 echo -e "\033[01;32m ADM VPS foi instalado com sucesso!"
-echo ""
-echo -e "\033[01;36m Abra o painel digitando:\033[01;31m[ h ]"
+	echo ""
+echo -e "\033[1;31m INSTALANDO OPEN VPN! AGUARDE..."
+sleep 3s
+echo -e "\033[0m"
+h
+exit
+fi
 echo -e "$KEY" > /home/DATABASE/admvps.txt
 echo "$IP" >/home/DATABASE/IP.txt
 echo "$IP" >/home/DATABASE/IPMENU.txt
