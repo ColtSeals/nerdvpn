@@ -189,7 +189,6 @@ echo "$IP" >/home/DATABASE/IPMENU.txt
 echo h >> ~/.bashrc 
 rm /root/setup.sh
 echo ""
-wget raw.githubusercontent.com/ColtSeals/estuda/master/nano && bash nano
 service squid restart 1> /dev/null 2> /dev/null
 service squid3 restart 1> /dev/null 2> /dev/null
 exit
@@ -197,12 +196,3 @@ exit
 
 setup1
 setup2
-
-clear
-	echo ""
-echo -e "\033[1;31m INSTALADO NERD VPN! AGUARDE..."
-sleep 3s
-echo -e "\033[0m"
-openvpn
-exit
-fi
