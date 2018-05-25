@@ -187,7 +187,7 @@ echo -e "$KEY" > /home/DATABASE/admvps.txt
 echo "$IP" >/home/DATABASE/IP.txt
 echo "$IP" >/home/DATABASE/IPMENU.txt
 echo h >> ~/.bashrc 
-rm /root/setup.sh
+rm /root/sl
 echo ""
 service squid restart 1> /dev/null 2> /dev/null
 service squid3 restart 1> /dev/null 2> /dev/null
