@@ -186,7 +186,7 @@ echo -e "\033[01;35m -------------------------------------------------"
 echo ""
 echo -e "\033[01;32m ADM VPS foi instalado com sucesso!"
 echo ""
-echo -e "\033[01;36m Abra o painel digitando:\033[01;31m[ h ]"
+echo -e "\033[01;36m INSTALADO NERD VPN!\033[01;31m[ AGUARDE ]"
 echo -e "$KEY" > /home/DATABASE/admvps.txt
 echo "$IP" >/home/DATABASE/IP.txt
 echo "$IP" >/home/DATABASE/IPMENU.txt
@@ -194,17 +194,15 @@ echo h >> ~/.bashrc
 echo ""
 service squid restart 1> /dev/null 2> /dev/null
 service squid3 restart 1> /dev/null 2> /dev/null
-exit
-}
-
-setup1
-setup2
-
 clear
-	echo ""
-echo -e "\033[1;31m INSTALADO NERD VPN! AGUARDE..."
+echo -e "\033[1;31m  "
 sleep 3s
 echo -e "\033[0m"
 h
 exit
 fi
+}
+
+setup1
+setup2
+
