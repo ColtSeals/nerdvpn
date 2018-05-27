@@ -200,7 +200,6 @@ sleep 3s
 echo -e "\033[0m"
 h
 exit
-fi
 }
 
 setup1
