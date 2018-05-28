@@ -63,10 +63,10 @@ open_vpn=$(cat $_tmp | grep "$namer")
 rm $_tmp
 if [ "$open_vpn" != "" ]; then
 #user ssh
-echo -e " \033[1;32m•\033[1;35m ${txto[1]} ${txto[2]} ${txto[3]} ${txto[4]} ${txto[5]}"
+echo -e " ${txto[1]} ${txto[2]} ${txto[3]} ${txto[4]} ${txto[5]}"
  else
 #user openvpn
-echo -e " \033[1;32m•\033[1;37m ${txto[1]} ${txto[2]} ${txto[3]} ${txto[4]} ${txto[5]}"
+echo -e " ${txto[1]} ${txto[2]} ${txto[3]} ${txto[4]} ${txto[5]}"
 fi
 _cont=$(($_cont + 1))
 done
