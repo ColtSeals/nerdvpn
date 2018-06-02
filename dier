@@ -2,39 +2,17 @@
 echo -e "\033[1;31m ============================================================= \033[0m"
 echo -e "\033[1;34m Usuario          Senha        Limite       Uso      Tempo"
 echo -e "\033[1;31m ============================================================= \033[0m"
-for users in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |sort |grep -v "nobody" |grep -vi polkitd |grep -vi system-`
-do
-
-if cat /etc/VpsPackdir/limite/$users > /dev/null 2> /dev/null
-then
-limitecs=$(cat /etc/VpsPackdir/limite/$users)
-else
-limitecs="null"
-fi
-
-if  senha=$(cat /etc/VpsPackdir/senha/$users > /dev/null 2> /dev/null)
-then
-senha=$(cat /etc/VpsPackdir/senha/$users)
-else
-senha="null"
-fi
-
-data=$(chage -l $users |grep -i co |awk -F : '{print $2}')
-if [ $data = never ] 2> /dev/null
-then
-date="Nunca"
-fi
 _cont="0"
 if [ ! -e $tempousers ]; then
 touch $tempousers
 fi
-for namer in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
-if [ "$namer" = "" ]; then
+for users in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+if [ "$users" = "" ]; then
 break
 fi
-if [ -e $dir_user/$namer ]; then
-_sen=$(cat $dir_user/$namer | grep "senha" | awk '{print $2}')
-_limit=$(cat $dir_user/$namer | grep "limite" | awk '{print $2}')
+if [ -e $dir_user/$users ]; then
+_sen=$(cat $dir_user/$users | grep "senha" | awk '{print $2}')
+_limit=$(cat $dir_user/$users | grep "limite" | awk '{print $2}')
 else
 _limit="?????"
 _sen="?????"
@@ -46,7 +24,7 @@ _limit="?????"
 _sen="?????"
  fi
 data_sec=$(date +%s)
-data_user=$(chage -l "$namer" |grep -i co |awk -F ":" '{print $2}')
+data_user=$(chage -l "$users" |grep -i co |awk -F ":" '{print $2}')
 if [ "$data_user" = " never" ]; then
 dias_user="\033[1;37mIlimitado"
  else
@@ -62,7 +40,7 @@ fi
 unset SEC
 unset MIN
 unset HOR
-SEC=$(cat $tempousers | grep "$namer" | awk '{print $2}')
+SEC=$(cat $tempousers | grep "$users" | awk '{print $2}')
 number_var $SEC
 if [ "$var_number" = "" ]; then
 SEC="0"
@@ -82,7 +60,7 @@ txto[4]=$(printf '%-9s' "${HOR}${hour_var}${MIN}${min_var}")
 detalhesdata=$(printf '%-18s' "$data")
 unset open_vpn
 echo "$(cat /etc/passwd | grep -v ovpn | awk -F : '$3 > 900 { print $1 }' |grep -v "nobody" | grep -vi polkitd |grep -vi system-)" > $_tmp
-open_vpn=$(cat $_tmp | grep "$namer")
+open_vpn=$(cat $_tmp | grep "$users")
 rm $_tmp
 if [ "$open_vpn" != "" ]; then
 #user ssh
