@@ -2,6 +2,28 @@
 echo -e "\033[1;31m ============================================================= \033[0m"
 echo -e "\033[1;34m Usuario          Senha        Limite       Uso      Tempo"
 echo -e "\033[1;31m ============================================================= \033[0m"
+for users in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |sort |grep -v "nobody" |grep -vi polkitd |grep -vi system-`
+do
+
+if cat /etc/VpsPackdir/limite/$users > /dev/null 2> /dev/null
+then
+limitecs=$(cat /etc/VpsPackdir/limite/$users)
+else
+limitecs="null"
+fi
+
+if  senha=$(cat /etc/VpsPackdir/senha/$users > /dev/null 2> /dev/null)
+then
+senha=$(cat /etc/VpsPackdir/senha/$users)
+else
+senha="null"
+fi
+
+data=$(chage -l $users |grep -i co |awk -F : '{print $2}')
+if [ $data = never ] 2> /dev/null
+then
+date="Nunca"
+fi
 _cont="0"
 if [ ! -e $tempousers ]; then
 touch $tempousers
