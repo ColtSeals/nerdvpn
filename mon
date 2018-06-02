@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo -e "\033[1;33m"
 touch /tmp/ovpn
 touch /tmp/ovpn2
@@ -20,3 +22,8 @@ usr=$(printf '%-18s' "$us1")
 cnx=$(printf '%-10s' "$on")
 echo -e "\033[01;33m$usr $cnx\033[0m"
 echo -e "\033[01;32m-------------------------"
+fi
+done
+sleep 5
+clear
+done
