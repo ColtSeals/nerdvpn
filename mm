@@ -23,11 +23,14 @@ echo -e "\033[1;37m ••••••••••••••••••••
 for _user in $(awk -F: '$3>=1000 {print $1}' /etc/passwd); do
 if [[ ! -z $(cat /etc/openvpn/*.log|grep ,${_user},) ]]; then
 _conn=$(cat /etc/openvpn/*.log|grep ,${_user},| wc -l)
-on="offline"
+if [ "$_user" = "0" ]; then
+on="0"
 else 
-on="online"
+on="1"
+fi
+_user=$(printf '%-18s' "$us1")
 cnx=$(printf '%-10s' "$on")
-echo -e "\033[1;33m    $(printf '%-41s%s' $_user $_conn               $cnx)\033[0m"
+echo -e "\033[1;33m  $_user                  $_conn              $cnx)\033[0m"
 echo -e "\033[1;37m ------------------------------------------------------\033[0m"
 fi
 done
