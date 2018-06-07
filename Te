@@ -12,7 +12,7 @@
 """
 
 # CHANGE THESE PATHS TO YOUR NEEDS:
-message_file = '/var/log/messages/current'
+message_file = '/etc/openvpn/openvpn-status.log
 pidof = '/bin/pidof'
 # END MANUAL CONFIG
 
