@@ -21,5 +21,4 @@ while true; do
 done < $input_file
 echo ""
 echo "Done reading $input_file"
-sleep 5
-echo ""
+
