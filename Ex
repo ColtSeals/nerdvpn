@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input_file=/var/log/openvpn/status.log
+input_file=/etc/openvpn/openvpn-status.log
 
 echo ""
 
